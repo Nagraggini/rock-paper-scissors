@@ -1,9 +1,3 @@
-.img2
-{
-background-image: url("Wallpaper.jpeg");
-}
-
-/* Alap stílusok */
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -12,13 +6,13 @@ body {
     justify-content: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #f4f4f9;
+    background-color: black; /* Ez állítja be az egész oldal háttérszínét */
 }
 
 /* A főcím és alcím stílusai */
 h1 {
     font-size: 36px;
-    color: #333;
+    color: #ddcfcf;
     margin-bottom: 10px;
     text-align: center;
     text-transform: uppercase; /* Nagybetűs szöveg */
@@ -26,7 +20,7 @@ h1 {
 
 h2 {
     font-size: 24px;
-    color: #555;
+    color: #ddcfcf;
     margin-bottom: 30px; /* Térköz a címek és a gombok között */
     text-align: center; /*Középre igazítás.*/
 }
@@ -34,28 +28,30 @@ h2 {
 /* Gombokat tartalmazó konténer */
 .button-container {
     display: flex; /* A gombok egymás mellé rendezése */
-    gap: 25px; /* Térköz a gombok között */
+    gap: 20px; /* Térköz a gombok között */
 }
 
 /* Egyes gombok stílusai */
 .image-button {
-    border: 2px solid #ccc;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    display: flex;
+    border: 2px solid #5e1354; /*Keret vastagsága.*/
+    background-color: rgba(110, 5, 84, 0.541);
+    padding: 15px; /*Belső térköz a gomb és a széle között-*/
+    border-radius: 10px; /*A keret sarkainak lekerekítése.*/
+    display: flex; 
     flex-direction: column;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s; 
+    /*transition -> A gomb nagyítós animációjának az átmenetét biztosítja, hogy szépen lassan legyen nagyobb.*/
 }
 
 /* Gombon belüli képek */
 .image-button img {
-    width: 310px;
-    height: 480px;
+    width: 100%;  /* A kép szélessége rugalmas lesz */
+    max-width: 250px; /* Maximum szélesség korlátozása */
+    max-height: 250px; /* Maximum magasság korlátozása */
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -65,7 +61,7 @@ h2 {
 /* Feliratok a gombokhoz */
 .image-button span {
     font-size: 14px;
-    color: #333;
+    color: #ddcfcf
 }
 
 /* Gomb hover animáció */
@@ -74,13 +70,61 @@ h2 {
     box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Az output szöveg stílusa */
-#output {
+/* A felhasználó választásának a betű stílusa. */
+#outputChoice {
     font-size: 20px;
-    color: #333;
+    color: #ddcfcf;
     margin-top: 20px;
     font-weight: bold;
     text-align: center;
 }
 
+/* Az eresmény betű stílusa */
+#outputResult {
+    font-size: 30px;
+    color: #ddcfcf;
+    margin-top: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/* Media query: Ha a képernyő szélessége kisebb, mint 600px (mobilok) */
+@media (max-width: 600px) {
+    /* A gombok egy oszlopba rendeződnek mobilon */
+    .button-container {
+        flex-direction: column;
+        gap: 15px;  /* Kisebb térköz a gombok között */
+    }
+
+    /* A címek és a szövegek kisebbek legyenek mobilon */
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    #outputChoice, #outputResult {
+        font-size: 18px;
+    }
+
+    /* A gombok kisebbek legyenek mobilon */
+    .image-button img {
+        max-width: 200px;
+        max-height: 200px;
+    }
+}
+
+/*CSS módosítások a mobilbarát térközökhöz.*/
+@media (max-width: 600px) {
+    h1, h2 {
+        margin-bottom: 15px; /* Kevesebb térköz a címek között */
+    }
+
+    #outputChoice, #outputResult {
+        margin-top: 15px;  /* Kevesebb térköz az eredmény megjelenítésekor */
+    }
+}
 
