@@ -107,8 +107,9 @@ h2 {
     /* A gombok kisebbek legyenek mobilon */
     .image-button img {
         width: 100%;  /* Kép szélessége rugalmas */
-        max-width: 200px;
-        max-height: 200px;
+        max-width: 100px;
+        max-height: 100px;
+        padding: 5px; /*Belső térköz a gomb és a széle között-*/
     }
     
     h1, h2 {
