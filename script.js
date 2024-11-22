@@ -1,43 +1,102 @@
-/*Ez a legfontosabb rész, mert,ha a html előtt nem töltődik be a javascript kód, akkor nem fogod látni bármit írsz ide.
- A kapcsos zárójelek közé másold be a js kódodat.*/
 document.addEventListener('DOMContentLoaded', () => {
-   
-// Gombok kiválasztása a html-ben megadott id-k alapján.
-const rockButton = document.getElementById('rock-btn');
-const paperButton = document.getElementById('paper-btn');
-const scissorsButton = document.getElementById('scissors-btn');
 
-// A kiválasztott elem értékét kiírjuk alulra.
-const output = document.getElementById('output');
+    // Tároló változó a felhasználó választására
+    let userChoice = "";
+    let computerChoice = "";
+    let Result = "";
+ 
+    // Gombok kiválasztása a html-ben megadott id-k alapján
+    const rockButton = document.getElementById('rock-btn');
+    const paperButton = document.getElementById('paper-btn');
+    const scissorsButton = document.getElementById('scissors-btn');
 
-// Ellenőrzés és eseményfigyelők hozzáadása a gombokhoz
-if (rockButton) {
-    rockButton.addEventListener('click', () => {
-        output.textContent = 'You choose: Rock!';
-    });
-} else { //Ha nincs meg a gomb, akkor kiírjuk a console-ra a hibát.
-    console.error('Element with id "rock-btn" not found!');
-}
+    // A kiválasztott elem értékét kiírjuk alulra.
+    const outputChoice = document.getElementById('outputChoice');
+    const outputResult = document.getElementById('outputResult');
+    
+    // Ellenőrzés és eseményfigyelők hozzáadása a gombokhoz
+    if (rockButton) {
+        rockButton.addEventListener('click', () => {
+            userChoice = "rock"; // Beállítjuk a választást
+            displayChoice(userChoice); // Visszajelzés a választásról
 
-if (paperButton) {
-    paperButton.addEventListener('click', () => {
-        output.textContent = 'You choose: Paper!';
-    });
-} else { //Ha nincs meg a gomb, akkor kiírjuk a console-ra a hibát.
-    console.error('Element with id "paper-btn" not found!');
-}
+            // A felhasználó választása
+            console.log("User chose: " + userChoice);
+            checking();
+        });
+    } else { 
+        console.error('Element with id "rock-btn" not found!');
+    }
 
-if (scissorsButton) {
-    scissorsButton.addEventListener('click', () => {
-        output.textContent = 'You choose: Scissors!';
-    });
-} else { //Ha nincs meg a gomb, akkor kiírjuk a console-ra a hibát.
-    console.error('Element with id "scissors-btn" not found!');
-}
+    if (paperButton) {
+        paperButton.addEventListener('click', () => {
+            userChoice = "paper"; // Beállítjuk a választást
+            displayChoice(userChoice);
 
-  // Második eseménykezelő ugyanarra az eseményre
-  rockButton.addEventListener('click', () => {
-    console.log('A gombra kattintottak!');
-  });
+            // A felhasználó választása
+            console.log("User chose: " + userChoice);
+            checking();
+        });
+    } else { 
+        console.error('Element with id "paper-btn" not found!');
+    }
 
+    if (scissorsButton) {
+        scissorsButton.addEventListener('click', () => {
+            userChoice = "scissors"; // Beállítjuk a választást
+            displayChoice(userChoice);
+
+            // A felhasználó választása
+            console.log("User chose: " + userChoice);
+            checking();
+        });
+    } else { 
+        console.error('Element with id "scissors-btn" not found!');
+    }
+
+    // Funkció a választás kijelzésére
+    function displayChoice(choice) {
+    document.getElementById("outputChoice").innerText = `You chose: ${choice}`;
+    }
+
+
+    // Gépi választás véletlenszerű generálása
+    function getComputerChoice() {
+    // Lehetőségek listája
+    const choices = ["rock", "paper", "scissors"];
+
+    // Véletlenszerű index kiválasztása a choices tömbből
+    const randomIndex = Math.floor(Math.random() * choices.length);
+
+    // A választás visszaadása
+    return choices[randomIndex];
+    }
+
+    // Leellenőrizzük az eredményt.
+    function checking() {
+        computerChoice = getComputerChoice();
+        // Tesztelés: a gép választása
+        console.log("Computer chose: " + computerChoice);
+    
+        // Eredmény meghatározása
+        if (userChoice == computerChoice) {
+            console.log("Draw!");
+            outputResult.innerText = "Draw!";
+        } else if (userChoice == "rock" && computerChoice == "paper" ||
+                userChoice == "paper" && computerChoice == "scissors" ||
+                userChoice == "scissors" && computerChoice == "rock") {
+            console.log("Computer is win!");
+
+            /*Az innerText-el frissítjük a HTML elem tartalmát, hogy az eredményt láthassa a felhasználó. 
+            Frissíteni kell a DOM elemet, hogy az megjelenjen az oldalon.*/
+            outputResult.innerText = "Computer is win!";
+        } else {
+            console.log("You win!");
+
+            //innerText -> Frissíti a DOM-ot.
+            outputResult.innerText = "You win!";
+        }
+    }
+    
+    
 });
