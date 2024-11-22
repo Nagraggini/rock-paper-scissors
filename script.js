@@ -36,9 +36,9 @@ if (scissorsButton) {
 }
 
 // Eseménykezelő hozzáadása
-rockButton.addEventListener('click', () => {
+/*rockButton.addEventListener('click', () => {
     alert('Ez egy modern eseménykezelő!');
-  });
+  });*/
 
   // Második eseménykezelő ugyanarra az eseményre
   rockButton.addEventListener('click', () => {
