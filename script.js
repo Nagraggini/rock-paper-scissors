@@ -35,11 +35,6 @@ if (scissorsButton) {
     console.error('Element with id "scissors-btn" not found!');
 }
 
-// Eseménykezelő hozzáadása
-/*rockButton.addEventListener('click', () => {
-    alert('Ez egy modern eseménykezelő!');
-  });*/
-
   // Második eseménykezelő ugyanarra az eseményre
   rockButton.addEventListener('click', () => {
     console.log('A gombra kattintottak!');
