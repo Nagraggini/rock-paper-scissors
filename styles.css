@@ -29,6 +29,8 @@ h2 {
 .button-container {
     display: flex; /* A gombok egymás mellé rendezése */
     gap: 20px; /* Térköz a gombok között */
+    flex-wrap: wrap; /* Ha nem fér el a gomb, új sorba kerül */
+    justify-content: center; /* Középre igazítás */
 }
 
 /* Egyes gombok stílusai */
@@ -97,28 +99,18 @@ h2 {
         gap: 15px;  /* Kisebb térköz a gombok között */
     }
 
-    /* A címek és a szövegek kisebbek legyenek mobilon */
-    h1 {
-        font-size: 28px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
+    
     #outputChoice, #outputResult {
         font-size: 18px;
     }
 
     /* A gombok kisebbek legyenek mobilon */
     .image-button img {
+        width: 100%;  /* Kép szélessége rugalmas */
         max-width: 200px;
         max-height: 200px;
     }
-}
-
-/*CSS módosítások a mobilbarát térközökhöz.*/
-@media (max-width: 600px) {
+    
     h1, h2 {
         margin-bottom: 15px; /* Kevesebb térköz a címek között */
     }
