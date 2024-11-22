@@ -2,12 +2,15 @@
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
+
+	<!-- Ez biztosítja, hogy az oldal a készülék szélességére lesz szabva, és a nagyítást is korlátozza. -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors Game!</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css"> <!--Stílus kialakítása-->
 </head>
+
 <body>
-    <h1>Rock, Paper, Scissors Game!</h1>
+	<h1>Rock, Paper, Scissors Game!</h1>
 		
     <h2>Choose your choice:</h2>
 
@@ -25,11 +28,14 @@
 			</button>
 		</div>
 
+	<!-- Itt jelenik meg, hogy mit választott a felhasználó. -->
+    <p id="outputChoice"></p>
+
+	<!-- Itt jelenik meg az eredmény. -->
+    <p id="outputResult"></p>
+
 	<!-- A gomb eseményeket javascriptben kezeljük. -->
     <script src="script.js"></script>
-	
-	<!-- Ide jelenik meg a szöveg -->
-    <p id="output"></p>
 	
 </body>
 </html>
