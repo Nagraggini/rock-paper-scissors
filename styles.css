@@ -112,6 +112,14 @@ h2 {
         padding: 5px; /*Belső térköz a gomb és a széle között-*/
     }
     
+    .image-button {
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    
     h1, h2 {
         margin-bottom: 15px; /* Kevesebb térköz a címek között */
     }
