@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const scissorsButton = document.getElementById('scissors-btn');
 
     // A kiválasztott elem értékét kiírjuk alulra.
-    const outputChoice = document.getElementById('outputChoice');
+    const outputChoiceUser = document.getElementById('outputChoiceUser');
+    const outputChoiceComputer = document.getElementById('outputChoiceComputer');
     const outputResult = document.getElementById('outputResult');
     
     // Ellenőrzés és eseményfigyelők hozzáadása a gombokhoz
@@ -56,7 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Funkció a választás kijelzésére
     function displayChoice(choice) {
-    document.getElementById("outputChoice").innerText = `You chose: ${choice}`;
+    document.getElementById("outputChoiceUser").innerText = `You chose: ${choice}`;
+    }
+
+    function displayChoiceComputer(choice) {
+        document.getElementById("outputChoiceComputer").innerText = `Computer chose: ${choice}`;
     }
 
 
@@ -77,20 +82,30 @@ document.addEventListener('DOMContentLoaded', () => {
         computerChoice = getComputerChoice();
         // Tesztelés: a gép választása
         console.log("Computer chose: " + computerChoice);
+
     
         // Eredmény meghatározása
         if (userChoice == computerChoice) {
+            // Kiíratom a gép választását.
+            displayChoiceComputer(computerChoice);
+
             console.log("Draw!");
             outputResult.innerText = "Draw!";
-        } else if (userChoice == "rock" && computerChoice == "paper" ||
-                userChoice == "paper" && computerChoice == "scissors" ||
-                userChoice == "scissors" && computerChoice == "rock") {
-            console.log("Computer is win!");
 
+        } else if (userChoice == "rock" && computerChoice == "paper" ||
+            userChoice == "paper" && computerChoice == "scissors" ||
+            userChoice == "scissors" && computerChoice == "rock") {
+            // Kiíratom a gép választását.
+            displayChoiceComputer(computerChoice);
+
+            console.log("Computer is win!");          
             /*Az innerText-el frissítjük a HTML elem tartalmát, hogy az eredményt láthassa a felhasználó. 
             Frissíteni kell a DOM elemet, hogy az megjelenjen az oldalon.*/
-            outputResult.innerText = "Computer is win!";
+            outputResult.innerText = "Computer is win!";            
         } else {
+            // Kiíratom a gép választását.
+            displayChoiceComputer(computerChoice);
+
             console.log("You win!");
 
             //innerText -> Frissíti a DOM-ot.
